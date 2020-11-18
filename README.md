@@ -1,3 +1,3 @@
 # blog-app
-![alt text](https://i.imgur.com/gjvb0Jv.png)
-![alt text](https://i.imgur.com/t5mZBdn.png)
+![alt text](https://i.imgur.com/JXyMP3h.png)
+![alt text](https://i.imgur.com/7xXDWMo.png)
