@@ -25,6 +25,9 @@ export class BlogService {
             id: blog.id,
             title: blog.title,
             description: blog.description,
+            imageLink: blog.imageLink,
+            content: blog.content,
+            interest: blog.interest,
         }));
     }
 
@@ -34,6 +37,9 @@ export class BlogService {
             id: blog.id,
             title: blog.title,
             description: blog.description,
+            imageLink: blog.imageLink,
+            content: blog.content,
+            interest: blog.interest,
         };
     }
 

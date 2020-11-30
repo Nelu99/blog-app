@@ -37,6 +37,9 @@ let BlogService = class BlogService {
             id: blog.id,
             title: blog.title,
             description: blog.description,
+            imageLink: blog.imageLink,
+            content: blog.content,
+            interest: blog.interest,
         }));
     }
     async getSingleBlog(blogId) {
@@ -45,6 +48,9 @@ let BlogService = class BlogService {
             id: blog.id,
             title: blog.title,
             description: blog.description,
+            imageLink: blog.imageLink,
+            content: blog.content,
+            interest: blog.interest,
         };
     }
     async updateBlog(blogId, title, desc, img, content, interest) {
