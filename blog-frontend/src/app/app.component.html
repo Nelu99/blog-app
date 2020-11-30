@@ -1,0 +1,35 @@
+<!-- Navigation Bar -->
+<app-top-navbar></app-top-navbar>
+
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+      <div class="sidebar-item">
+        <div class="make-me-sticky">
+
+          <!-- Side Widget -->
+          <app-side-widget></app-side-widget>
+
+          <!-- Interests Widget -->
+          <app-interests-widget></app-interests-widget>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<app-footer></app-footer>
