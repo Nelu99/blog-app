@@ -76,7 +76,7 @@ let BlogService = class BlogService {
     async deleteBlog(blogId) {
         const result = await this.blogModel.deleteOne({ _id: blogId }).exec();
         if (result.n === 0) {
-            throw new common_1.NotFoundException('Could not find blog!');
+            throw new common_1.NotFoundException('Could not find blog.');
         }
         return true;
     }
