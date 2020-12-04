@@ -9,6 +9,7 @@ import { BlogPostComponent } from './Components/blog-post/blog-post.component';
 import { InterestsWidgetComponent } from './Components/interests-widget/interests-widget.component';
 import { SideWidgetComponent } from './Components/side-widget/side-widget.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { PostListModule } from './Components/posts_list/PostListModule';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,11 @@ import { RegisterComponent } from './Components/register/register.component';
     RegisterComponent
   ],
   imports: [
+    PostListModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
+  exports:[PostListModule],
   providers: [],
   bootstrap: [AppComponent]
 })
