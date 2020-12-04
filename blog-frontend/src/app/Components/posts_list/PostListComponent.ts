@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import { Observable } from 'rxjs';
+import { PostService } from '../services/PostService';
+import {PostListItem} from '../posts_list/PostListItem';
 
 @Component({
     selector:'app-post-list',
@@ -6,36 +9,12 @@ import {Component, OnInit} from '@angular/core';
 })
 
 export class PostListComponent implements OnInit{
-    public postList= postList;
-    constructor(){
+    public postList:Observable<PostListItem[]> | undefined;
+    constructor(private postService:PostService){
 
     }
 
     ngOnInit(){
-
+        this.postList = this.postService.getAllPostItems();
     }
 }
-
-const postList = [
-    {
-        title:"t1",
-        description:"d1",
-        imageLink:"https://material.angular.io/assets/img/examples/shiba2.jpg",
-        content:"none",
-        interest:"running"
-    },
-    {
-        title:"t1",
-        description:"d1",
-        imageLink:"https://material.angular.io/assets/img/examples/shiba2.jpg",
-        content:"none",
-        interest:"running"
-    }
-    ,{
-        title:"t1",
-        description:"d1",
-        imageLink:"https://material.angular.io/assets/img/examples/shiba2.jpg",
-        content:"none",
-        interest:"running"
-    }
-]
