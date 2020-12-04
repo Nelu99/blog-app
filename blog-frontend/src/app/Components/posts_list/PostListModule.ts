@@ -3,14 +3,17 @@ import { PostListComponent } from './PostListComponent';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { PostService } from '../services/PostService';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
     imports:[MatCardModule,
     MatButtonModule,
-    CommonModule],
+    CommonModule,
+    HttpClientModule],
     exports:[PostListComponent],
     declarations:[PostListComponent],
-    providers:[]
+    providers:[PostService]
 })
 
 export class PostListModule{
