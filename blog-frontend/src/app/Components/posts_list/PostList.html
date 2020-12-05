@@ -1,20 +1,16 @@
-<div class = "container">
+<h1 class="mt-4">Popular</h1>
+<div class = "container-fluid" style="margin-top:25px">
     <div class = "row">
-        <div class = "col-3" *ngFor = "let item of postList | async">
-                <mat-card>
-                <mat-card-header>
-                  <mat-card-title>{{item.title}}</mat-card-title>
-                  <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
-                  <mat-card-subtitle>{{item.interest}}</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image [src]="item.imageLink">
-                <mat-card-content>
-                  <p>{{item.content}}</p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>Read More</button>
-                </mat-card-actions>
-              </mat-card>
+        <div *ngFor = "let item of postList | async">
+          <div class="card bg-dark text-white" style="margin:25px 25px 25px 25px">
+            <img class="img-fluid resizeImage" [src]="item.imageLink">
+            <div class="card-img-overlay">
+              <h5 class="card-title">{{item.title}}</h5>
+              <p class="card-text">{{item.description}}</p>
+              <p class="card-text">{{item.interest}}</p>
+            </div>
+          </div>
         </div>
     </div>
 </div>
+

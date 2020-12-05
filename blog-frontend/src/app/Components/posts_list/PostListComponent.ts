@@ -5,7 +5,7 @@ import {PostListItem} from '../posts_list/PostListItem';
 
 @Component({
     selector:'app-post-list',
-    templateUrl:'postList.html'
+    templateUrl:'./postList.html'
 })
 
 export class PostListComponent implements OnInit{
