@@ -1,0 +1,17 @@
+<h1 class="mt-4">Popular</h1>
+<div class = "container-fluid" style="margin-top:25px">
+    <div class = "row">
+        <div *ngFor = "let item of postList | async">
+          <div class="card bg-dark text-white" style="margin:25px 25px 25px 25px">
+            <img class="img-fluid resizeImage" [src]="item.imageLink">
+            <h5 class="card-title bg-text-autor">Nume Autor</h5>
+            <div class="bg-text">
+              <h5 class="card-title">{{item.title}}</h5>
+              <p class="card-text">{{item.description}}</p>
+              <p class="card-text">{{item.interest}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+

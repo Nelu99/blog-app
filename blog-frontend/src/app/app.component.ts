@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser'
+import { PostResource } from './Components/services/PostResource';
 
 @Component({
   selector: 'app-root',
+  providers: [PostResource],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

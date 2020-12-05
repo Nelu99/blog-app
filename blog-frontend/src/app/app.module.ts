@@ -9,6 +9,10 @@ import { BlogPostComponent } from './Components/blog-post/blog-post.component';
 import { InterestsWidgetComponent } from './Components/interests-widget/interests-widget.component';
 import { SideWidgetComponent } from './Components/side-widget/side-widget.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { PostListModule } from './Components/posts_list/PostListModule';
+import { PostService } from './Components/services/PostService';
+import {HttpClientModule} from '@angular/common/http';
+import { PostResource } from './Components/services/PostResource';
 
 @NgModule({
   declarations: [
@@ -21,10 +25,14 @@ import { RegisterComponent } from './Components/register/register.component';
     RegisterComponent
   ],
   imports: [
+    PostListModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  exports:[PostListModule],
+  providers: [PostService,
+  PostResource],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
