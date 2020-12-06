@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-navbar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    const form = document.getElementById('searchForm')!;
+    form.addEventListener('submit', (event) => {event.preventDefault(); this.onSubmit()});
+  }
+
+  onSubmit() {
+    this.router.navigate(['explore/' + (<HTMLInputElement>document.getElementById("search")).value]);
   }
 
 }
