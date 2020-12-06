@@ -40,7 +40,7 @@ export class WriteFormComponent implements OnInit {
     this.http.post<any>(this.URL, postItem).subscribe(
       (res) => {
         console.log(res);
-        this.router.navigate(['explore']);
+        this.router.navigate(['post/' + res.data._id]);
       },
       (err) => {
         console.log(err);
