@@ -8,12 +8,14 @@ export class BlogService {
     constructor(@InjectModel('Blog') private readonly blogModel: Model<Blog>) { }
 
     async insertBlog(title: string, desc: string, img: string, content: string, interest: string) {
+        const date: Date = new Date();
         const newblog = new this.blogModel({
             title,
             description: desc,
             imageLink: img,
             content,
-            interest
+            interest,
+            date: date.toDateString()
         });
         const result = await newblog.save();
         return result;
@@ -28,6 +30,7 @@ export class BlogService {
             imageLink: blog.imageLink,
             content: blog.content,
             interest: blog.interest,
+            date: blog.date,
         }));
     }
 
@@ -40,6 +43,7 @@ export class BlogService {
             imageLink: blog.imageLink,
             content: blog.content,
             interest: blog.interest,
+            date: blog.date,
         };
     }
 
@@ -53,6 +57,7 @@ export class BlogService {
             imageLink: blog.imageLink,
             content: blog.content,
             interest: blog.interest,
+            date: blog.date,
         }));
     }
 

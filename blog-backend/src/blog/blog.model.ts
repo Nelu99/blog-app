@@ -5,7 +5,8 @@ export const BlogSchema = new mongoose.Schema({
   description: { type: String, required: true },
   imageLink: { type: String, required: false },
   content: { type: String, required: true },
-  interest: { type: String, required: true }
+  interest: { type: String, required: true },
+  date: { type: String, required: false }
 });
 
 export interface Blog extends mongoose.Document {
@@ -15,4 +16,5 @@ export interface Blog extends mongoose.Document {
   imageLink: string;
   content: string;
   interest: string;
+  date: string
 }
