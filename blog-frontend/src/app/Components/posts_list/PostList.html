@@ -1,6 +1,6 @@
 <div class = "container-fluid"style="padding-top: 50px; padding-bottom: 50px">
     <div class = "row">
-      <h1 class="mt-4">Popular</h1>
+      <h1 class="mt-4">{{title}}</h1>
         <div *ngFor = "let item of postList | async">
           <div class="card bg-dark text-white" style="margin:25px 25px 25px 25px">
             <img class="img-fluid resizeImage" [src]="item.imageLink">
@@ -8,7 +8,7 @@
             <div class="bg-text">
               <h5 class="card-title">{{item.title}}</h5>
               <p class="card-text">{{item.description}}</p>
-              <p class="card-text">{{item.interest}}</p>
+              <p class= "card-text"><a style="color: aquamarine;" href="/explore/{{item.interest}}">{{item.interest}}</a></p>
             </div>
           </div>
         </div>

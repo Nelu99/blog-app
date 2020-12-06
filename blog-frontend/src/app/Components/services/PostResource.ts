@@ -15,4 +15,8 @@ export class PostResource{
     public getBlogs():Observable<PostListItem[]> {
         return this.httpClient.get<PostListItem[]>(this.URL);
     }
+
+    public getByInterest(interest: string):Observable<PostListItem[]> {
+        return this.httpClient.get<PostListItem[]>(this.URL + "/posts/" + interest);
+    }
 }

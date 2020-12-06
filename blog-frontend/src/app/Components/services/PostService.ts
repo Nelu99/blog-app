@@ -13,4 +13,8 @@ export class PostService{
     public getAllPostItems():Observable<PostListItem[]>{
         return this.postResource.getBlogs();
     }
+
+    public getPostsByInterest(interest: string):Observable<PostListItem[]>{
+        return this.postResource.getByInterest(interest);
+    }
 }

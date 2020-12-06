@@ -20,6 +20,14 @@ export declare class BlogService {
         content: string;
         interest: string;
     }>;
+    getBlogsByInterest(blogInterest: string): Promise<{
+        id: string;
+        title: string;
+        description: string;
+        imageLink: string;
+        content: string;
+        interest: string;
+    }[]>;
     updateBlog(blogId: string, title: string, desc: string, img: string, content: string, interest: string): Promise<Blog>;
     deleteBlog(blogId: string): Promise<boolean>;
     private findBlog;
