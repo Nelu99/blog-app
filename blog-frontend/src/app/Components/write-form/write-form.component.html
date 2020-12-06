@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Description </label>
+                    <label for="description">Description <span class="require">*</span> </label>
                     <textarea #txtDesc id="txtDesc" style="resize:vertical" (keyup)="autogrow(txtDesc)" rows="1"
                         (click)="autogrow(txtDesc)" class="form-control" name="description"
                         formcontrolName="description" required minlength="12"></textarea>
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="content">Content </label>
+                    <label for="content"> Content <span class="require">*</span> </label>
                     <textarea #txtContent id="txtContent" style="resize:vertical" (keyup)="autogrow(txtContent)"
                         rows="1" (click)="autogrow(txtContent)" class="form-control" name="content"
                         formcontrolName="content" required minlength="12"></textarea>
