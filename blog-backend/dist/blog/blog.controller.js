@@ -31,8 +31,11 @@ let BlogController = class BlogController {
         const blog = await this.blogService.getBlogs();
         return blog;
     }
-    getblog(blogId) {
-        return this.blogService.getSingleBlog(blogId);
+    getblog(blogInterest) {
+        return this.blogService.getSingleBlog(blogInterest);
+    }
+    getBlogsByInterest(blogId) {
+        return this.blogService.getBlogsByInterest(blogId);
     }
     async updateBlog(blogId, blogTitle, blogDesc, blogImage, blogContent, blogInterest) {
         const blog = await this.blogService.updateBlog(blogId, blogTitle, blogDesc, blogImage, blogContent, blogInterest);
@@ -76,6 +79,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], BlogController.prototype, "getblog", null);
+__decorate([
+    common_1.Get('posts/:interest'),
+    __param(0, common_1.Param('interest')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], BlogController.prototype, "getBlogsByInterest", null);
 __decorate([
     common_1.Patch(':id'),
     __param(0, common_1.Param('id')),

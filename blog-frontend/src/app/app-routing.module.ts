@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '', component: PostListComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'explore', component: PostListComponent },
+  { path: 'explore/:interest', component: PostListComponent },
   { path: 'post/:id', component: BlogPostComponent },
   { path: 'post', component: WriteFormComponent }
 ];

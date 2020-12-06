@@ -43,6 +43,19 @@ export class BlogService {
         };
     }
 
+    async getBlogsByInterest(blogInterest: string) {
+        const regex = new RegExp(blogInterest, 'i')
+        const blogs = await this.blogModel.find({interest: {$regex: regex}}).exec();
+        return blogs.map(blog => ({
+            id: blog.id,
+            title: blog.title,
+            description: blog.description,
+            imageLink: blog.imageLink,
+            content: blog.content,
+            interest: blog.interest,
+        }));
+    }
+
     async updateBlog(blogId: string, title: string, desc: string, img: string, content: string, interest: string) {
         const updatedblog = await this.findBlog(blogId);
         if (title) {

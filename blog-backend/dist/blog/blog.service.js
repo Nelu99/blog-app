@@ -53,6 +53,18 @@ let BlogService = class BlogService {
             interest: blog.interest,
         };
     }
+    async getBlogsByInterest(blogInterest) {
+        const regex = new RegExp(blogInterest, 'i');
+        const blogs = await this.blogModel.find({ interest: { $regex: regex } }).exec();
+        return blogs.map(blog => ({
+            id: blog.id,
+            title: blog.title,
+            description: blog.description,
+            imageLink: blog.imageLink,
+            content: blog.content,
+            interest: blog.interest,
+        }));
+    }
     async updateBlog(blogId, title, desc, img, content, interest) {
         const updatedblog = await this.findBlog(blogId);
         if (title) {

@@ -34,8 +34,13 @@ export class BlogController {
     }
 
     @Get(':id')
-    getblog(@Param('id') blogId: string) {
-        return this.blogService.getSingleBlog(blogId);
+    getblog(@Param('id') blogInterest: string) {
+        return this.blogService.getSingleBlog(blogInterest);
+    }
+
+    @Get('posts/:interest')
+    getBlogsByInterest(@Param('interest') blogId: string) {
+        return this.blogService.getBlogsByInterest(blogId);
     }
 
     @Patch(':id')

@@ -16,7 +16,7 @@ export declare class BlogController {
         content: string;
         interest: string;
     }[]>;
-    getblog(blogId: string): Promise<{
+    getblog(blogInterest: string): Promise<{
         id: string;
         title: string;
         description: string;
@@ -24,6 +24,14 @@ export declare class BlogController {
         content: string;
         interest: string;
     }>;
+    getBlogsByInterest(blogId: string): Promise<{
+        id: string;
+        title: string;
+        description: string;
+        imageLink: string;
+        content: string;
+        interest: string;
+    }[]>;
     updateBlog(blogId: string, blogTitle: string, blogDesc: string, blogImage: string, blogContent: string, blogInterest: string): Promise<{
         statusCode: HttpStatus;
         message: string;
