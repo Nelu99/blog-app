@@ -26,7 +26,8 @@ let BlogService = class BlogService {
             description: desc,
             imageLink: img,
             content,
-            interest
+            interest,
+            date: new Date().toLocaleString()
         });
         const result = await newblog.save();
         return result;
@@ -40,6 +41,7 @@ let BlogService = class BlogService {
             imageLink: blog.imageLink,
             content: blog.content,
             interest: blog.interest,
+            date: blog.date,
         }));
     }
     async getSingleBlog(blogId) {
@@ -51,6 +53,7 @@ let BlogService = class BlogService {
             imageLink: blog.imageLink,
             content: blog.content,
             interest: blog.interest,
+            date: blog.date,
         };
     }
     async getBlogsByInterest(blogInterest) {
@@ -63,6 +66,7 @@ let BlogService = class BlogService {
             imageLink: blog.imageLink,
             content: blog.content,
             interest: blog.interest,
+            date: blog.date,
         }));
     }
     async updateBlog(blogId, title, desc, img, content, interest) {

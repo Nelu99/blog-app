@@ -5,4 +5,5 @@ export interface PostListItem{
     imageLink:string;
     content:string;
     interest:string;
+    date:string;
 }

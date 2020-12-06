@@ -7,4 +7,5 @@ export interface Blog extends mongoose.Document {
     imageLink: string;
     content: string;
     interest: string;
+    date: string;
 }
