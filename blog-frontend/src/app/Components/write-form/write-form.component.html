@@ -1,0 +1,55 @@
+<div class="container" style="padding-top: 50px; padding-bottom: 50px">
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+
+            <h1 class="mt-4">Write post</h1>
+
+            <form id="postForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-group">
+                    <label for="title">Title <span class="require">*</span></label>
+                    <input #title id="title" type="text" class="form-control" formcontrolName="title" name="title" required
+                        minlength="4" />
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description </label>
+                    <textarea #txtDesc id="txtDesc" style="resize:vertical" (keyup)="autogrow(txtDesc)" rows="1"
+                        (click)="autogrow(txtDesc)" class="form-control" name="description"
+                        formcontrolName="description" required minlength="12"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">Interest <span class="require">*</span></label>
+                    <input #interest id="interest" type="text" class="form-control" name="interest" formcontrolName="interest"
+                        required minlength="3" />
+                </div>
+
+                <div class="form-group">
+                    <label for="imageLink">Image </label>
+                    <input #imageLink id="imageLink" type="text" class="form-control" name="imageLink" formcontrolName="imageLink">
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Content </label>
+                    <textarea #txtContent id="txtContent" style="resize:vertical" (keyup)="autogrow(txtContent)"
+                        rows="1" (click)="autogrow(txtContent)" class="form-control" name="content"
+                        formcontrolName="content" required minlength="12"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <p><span class="require">*</span> - required fields</p>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-lg btn-outline-success my-2 my-sm-0">
+                        Submit
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
