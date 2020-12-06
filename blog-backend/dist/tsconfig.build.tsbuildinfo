@@ -1544,12 +1544,10 @@
       "../src/blog/blog.controller.ts": {
         "version": "fbf528735c77d6de95acf2cf1c6ceaeb72c7fb305b6147a332fa34db2f54f269",
         "signature": "156aeed1ad60008e3f33beeae2bd168bb4b8a7da3f7fe19da5f1de07eda29064",
-        "version": "0a6d643862fa12bc0dbb5d7ced6bb198f830f1418c3f11c3bb2e8d8ecf6e928d",
-        "signature": "dae23fb1153a68d8ac812934c4f299d36fbdcd4a3cc4bba34f24620494b8bff5",
         "affectsGlobalScope": false
       },
       "../src/blog/blog.controller.ts": {
-        "version": "ef729dc8bd5bc45f1c74ddc533a721d869f252613323f7c346276c2673549f2e",
+        "version": "fbf528735c77d6de95acf2cf1c6ceaeb72c7fb305b6147a332fa34db2f54f269",
         "signature": "0aeeacdbe14870e481cf0a909b327b2f84671cdf00670ce48f09841f43ee7021",
         "affectsGlobalScope": false
       },
