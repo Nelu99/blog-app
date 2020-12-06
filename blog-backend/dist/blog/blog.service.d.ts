@@ -11,6 +11,7 @@ export declare class BlogService {
         imageLink: string;
         content: string;
         interest: string;
+        date: string;
     }[]>;
     getSingleBlog(blogId: string): Promise<{
         id: string;
@@ -19,6 +20,7 @@ export declare class BlogService {
         imageLink: string;
         content: string;
         interest: string;
+        date: string;
     }>;
     getBlogsByInterest(blogInterest: string): Promise<{
         id: string;
@@ -27,6 +29,7 @@ export declare class BlogService {
         imageLink: string;
         content: string;
         interest: string;
+        date: string;
     }[]>;
     updateBlog(blogId: string, title: string, desc: string, img: string, content: string, interest: string): Promise<Blog>;
     deleteBlog(blogId: string): Promise<boolean>;
