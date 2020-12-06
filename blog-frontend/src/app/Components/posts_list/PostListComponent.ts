@@ -23,7 +23,7 @@ export class PostListComponent implements OnInit {
             }
             else {
                 this.postList = this.postService.getAllPostItems();
-                this.title = "Popular";
+                this.title = "Popular posts";
             }
         });
     }
