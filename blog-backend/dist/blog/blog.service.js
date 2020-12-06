@@ -28,6 +28,9 @@ let BlogService = class BlogService {
             content,
             interest
         });
+        if (!newblog.imageLink) {
+            newblog.imageLink = "https://loadedlandscapes.com/wp-content/uploads/2019/07/lighting-1280x720.jpg";
+        }
         const result = await newblog.save();
         return result;
     }

@@ -13,6 +13,7 @@ import { PostListModule } from './Components/posts_list/PostListModule';
 import { PostService } from './Components/services/PostService';
 import {HttpClientModule} from '@angular/common/http';
 import { PostResource } from './Components/services/PostResource';
+import { WriteFormComponent } from './Components/write-form/write-form.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,14 @@ import { PostResource } from './Components/services/PostResource';
     BlogPostComponent,
     InterestsWidgetComponent,
     SideWidgetComponent,
-    RegisterComponent
+    RegisterComponent,
+    WriteFormComponent
   ],
   imports: [
     PostListModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports:[PostListModule],
   providers: [PostService,
