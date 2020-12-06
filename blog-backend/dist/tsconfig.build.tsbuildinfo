@@ -1537,7 +1537,7 @@
         "affectsGlobalScope": false
       },
       "../src/blog/blog.service.ts": {
-        "version": "1011bd15a99c495b3d3f6a01924234ed4cdaae353c4734ce17feb38177e2b329",
+        "version": "b57a6c71564b80a0d1ba6a5adfd3928d3124e08a564d4de03d07d47f9420a336",
         "signature": "5b84c1b46c6c4e5d3d8cce61fd1cda94f63f315358ba5dea2a3f741845989027",
         "affectsGlobalScope": false
       },
