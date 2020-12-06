@@ -19,7 +19,7 @@ export class PostListComponent implements OnInit {
         this.routeSub = this.route.params.subscribe(params => {
             if (params['interest'] && params['interest'] != "") {
                 this.postList = this.postService.getPostsByInterest(params['interest']);
-                this.title = "Posts about " + params['interest'].toLowerCase();
+                this.title = "Intrerest: " + params['interest'].toLowerCase();
             }
             else {
                 this.postList = this.postService.getAllPostItems();
