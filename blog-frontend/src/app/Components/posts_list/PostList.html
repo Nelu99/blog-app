@@ -2,6 +2,7 @@
     <div class = "row">
       <h1 class="mt-4">{{title}}</h1>
         <div *ngFor = "let item of postList | async">
+          <a href="http://localhost:4200/post/{{item.id}}">
           <div class="card bg-dark text-white" style="margin:25px 25px 25px 25px">
             <img class="img-fluid resizeImage" [src]="item.imageLink">
             <h5 class="card-title bg-text-autor">Nume Autor</h5>
@@ -11,6 +12,7 @@
               <p class= "card-text"><a style="color: aquamarine;" href="/explore/{{item.interest}}">{{item.interest}}</a></p>
             </div>
           </div>
+          </a>
         </div>
     </div>
 </div>
