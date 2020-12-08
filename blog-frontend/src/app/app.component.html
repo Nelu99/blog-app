@@ -1,35 +1,40 @@
-<!-- Navigation Bar -->
-<app-top-navbar></app-top-navbar>
+<div class="wrapper d-flex flex-column h-100">
+  <!-- Navigation Bar -->
+  <app-top-navbar></app-top-navbar>
+  <main class="flex-fill">
+    <!-- Page Content -->
+    <div class="container Site">
 
-<!-- Page Content -->
-<div class="container">
+      <div class="row">
 
-  <div class="row">
-
-    <!-- Post Content Column -->
-    <div class="col-lg-8">
-      <router-outlet></router-outlet>
-    </div>
-
-    <!-- Sidebar Widgets Column -->
-    <div class="col-md-4">
-      <div class="sidebar-item">
-        <div class="make-me-sticky">
-
-          <!-- Side Widget -->
-          <app-side-widget></app-side-widget>
-
-          <!-- Interests Widget -->
-          <app-interests-widget></app-interests-widget>
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+          <router-outlet></router-outlet>
         </div>
-      </div>
-    </div>
 
-  </div>
-  <!-- /.row -->
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+          <div class="sidebar-item">
+            <div class="make-me-sticky">
+
+              <!-- Side Widget -->
+              <app-side-widget></app-side-widget>
+
+              <!-- Interests Widget -->
+              <app-interests-widget></app-interests-widget>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+  </main>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
 
 </div>
-<!-- /.container -->
-
-<!-- Footer -->
-<app-footer></app-footer>
