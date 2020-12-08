@@ -2,7 +2,7 @@
 
 # compiled output
 /dist
-/blog-backend/dist
+blog-backend/dist
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -10,8 +10,9 @@
 
 # dependencies
 /node_modules
-/blog-frontend/node_modules
-/blog-backend/node_modules
+blog-frontend/node_modules
+blog-backend/node_modules/
+blog-backend/node_modules/
 
 # profiling files
 chrome-profiler-events*.json
