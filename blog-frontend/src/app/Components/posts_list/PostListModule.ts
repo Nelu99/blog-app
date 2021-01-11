@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { PostService } from '../services/PostService';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
     imports:[MatCardModule,
@@ -13,7 +14,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     HttpClientModule],
     exports:[PostListComponent],
     declarations:[PostListComponent],
-    providers:[PostService]
+    providers:[PostService, CookieService]
 })
 
 export class PostListModule{

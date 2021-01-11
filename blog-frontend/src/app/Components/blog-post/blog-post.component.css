@@ -1,0 +1,90 @@
+.share-btn-container {
+    background: #fff;
+    display: flex;
+    transform: unset;
+    top: unset;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    flex-direction: row;
+    padding: 16px 0;
+    justify-content: center;
+  }
+  
+  .share-btn-container a i {
+    font-size: 32px;
+  }
+  
+  .share-btn-container a {
+    margin: 0 32px;
+    transition: 500ms;
+  }
+  
+  .share-btn-container a:hover {
+    transform: scale(1.25);
+  }
+  
+  .share-btn-container .fa-facebook {
+    color: #1778F2;
+  }
+  
+  .share-btn-container .fa-twitter {
+    color: #1da1f2;
+  }
+  
+  .share-btn-container .fa-linkedin {
+    color: #0077b5;
+  }
+  
+  .share-btn-container .fa-pinterest {
+    color: #bd081c;
+  }
+  
+  .share-btn-container .fa-whatsapp {
+    color: #25d366;
+  }
+
+  .zoom {
+    transition: transform .5s;
+    width: 50px;
+    height: 50px;
+    margin-bottom:3px; 
+    margin-right:5px
+  }
+  
+.zoom:hover {
+  transform: scale(1.25);
+}
+
+#notLiked {
+  width: 40px;
+  height: 40px;
+  content: url('/assets/unlike.svg');
+}
+
+#notLiked:hover {
+  content: url('/assets/like.svg');
+}
+
+#Liked {
+  width: 40px;
+  height: 40px;
+  content: url('/assets/like.svg');
+}
+
+#Liked:hover {
+  content: url('/assets/unlike.svg');
+}
+
+.user-avatar{
+  width: 75px;
+  height: 75px;
+  -webkit-border-radius: 60px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 60px;
+  -moz-background-clip: padding;
+  border-radius: 60px;
+  background-clip: padding-box;
+  margin-right: 15px;
+  float: left;
+}

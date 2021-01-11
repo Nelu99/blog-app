@@ -1,21 +1,43 @@
-<div class = "container-fluid"style="padding-top: 50px; padding-bottom: 50px">
-    <div class = "row">
-      <h1 class="mt-4">{{title}}</h1>
-        <div *ngFor = "let item of postList | async">
-          <a href="http://localhost:4200/post/{{item.id}}">
-          <div class="card bg-dark text-white zoom" style="margin:25px 25px 25px 25px">
-            <img class="img-fluid resizeImage" [src]="item.imageLink">
-            <h5 class="card-title bg-text-autor">Nume Autor</h5>
-            <div class="bg-text">
-              <h5 class="card-title">{{item.title}}</h5>
-              <p class="card-text">{{item.description}}</p>
-              <p class="card-text">{{item.date}}</p>
-              <p class= "card-text"><a style="color: aquamarine;" href="/explore/{{item.interest}}">{{item.interest}}</a></p>
-            </div>
-          </div>
-          </a>
-        </div>
-    </div>
-    
-</div>
+<div class="container-fluid" style="padding-top: 50px; padding-bottom: 50px">
 
+  <div class="row">
+    <div class="w-100">
+      <h1 class="mt-4">{{title}}</h1>
+      <div *ngIf="getUser()">
+         <a (click)="getPostsGlobal()" class="float-right" style="color:darkcyan; font-size: larger; padding-right: 15px;"
+          href="javascript:void(0);">Discover</a>
+        <span style="font-size: larger; padding-right: 15px" class="float-right">|</span>
+        <a (click)="getPostsByUserInterests()" class="float-right"
+          style="color:darkcyan; font-size: larger; padding-right: 15px;" href="javascript:void(0);">For me</a>
+      </div>
+    </div>
+    <div *ngFor="let item of postList">
+      <a href="http://localhost:4200/post/{{item.id}}">
+        <div class="card bg-dark text-white zoom" style="margin:25px 25px 25px 25px">
+          <img class="img-fluid resizeImage" [src]="item.imageLink">
+          <h5 class="card-title bg-text-autor">{{item.writer}}</h5>
+          <div class="bg-text">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text">{{item.description}}</p>
+            <p class="card-text">{{item.date}}</p>
+            <p class="card-text">
+              <a style="color: aquamarine;" href="/explore/{{item.interest}}">{{item.interest}}</a>
+              <a *ngIf="getUser()" href="javascript:void(0);">
+                <button (click)="addInterest(item.interest)" class="btn btn-sm btn-outline-light my-2 my-sm-0"
+                  style="margin-left: 10px; height: 30px;">+</button>
+              </a>
+            </p>
+            <p>Likes: {{item?.likes?.length}}
+              <a *ngIf="getUser()" href="javascript:void(0);">
+                <img *ngIf="!alreadyLikedBlog(item)" id="notLiked" (click)="likeBlog(item?.id)" class="img-fluid"
+                  alt="Like">
+                <img *ngIf="alreadyLikedBlog(item)" id="Liked" (click)="dislikeBlog(item?.id)" class="img-fluid"
+                  alt="Dislike">
+              </a>
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

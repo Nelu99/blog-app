@@ -1,0 +1,24 @@
+.user-avatar{
+    width: 75px;
+    height: 75px;
+    -webkit-border-radius: 60px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 60px;
+    -moz-background-clip: padding;
+    border-radius: 60px;
+    background-clip: padding-box;
+    margin-right: 15px;
+    float: left;
+  }
+
+  .zoom {
+    transition: transform .5s;
+    width: 50px;
+    height: 50px;
+    margin-bottom:3px; 
+    margin-right:5px
+  }
+  
+.zoom:hover {
+  transform: scale(1.25);
+}

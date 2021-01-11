@@ -1,27 +1,12 @@
-<div class="card my-4">
-    <h5 class="card-header">Your Interests</h5>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a style="color:darkcyan;" href="#">Web Design</a>
-                    </li>
-                    <li>
-                        <a style="color:darkcyan;" href="#">HTML</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a style="color:darkcyan;" href="#">TypeScript</a>
-                    </li>
-                    <li>
-                        <a style="color:darkcyan;" href="#">CSS</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<div *ngIf="getUser()" class="card my-4">
+    <h5 class="card-header text-center">Interests</h5>
+    <div class="card-body text-center">
+        <ul class="list-group list-group-flush" style="max-height: 365px; overflow: auto">
+            <li *ngFor="let item of getUser().interests" class="list-group-item text-center w-100" style="font-size: larger; margin-bottom: 15px;">
+                <a class="float-left" style="color:darkcyan;" href="/explore/{{item}}">{{item}}</a>
+                <img (click)="removeInterest(item)" src="/assets/close.svg" class="float-right img-fluid zoom"
+                    alt="Remove interest">
+            </li>
+        </ul>
     </div>
 </div>

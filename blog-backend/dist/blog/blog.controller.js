@@ -19,8 +19,8 @@ let BlogController = class BlogController {
     constructor(blogService) {
         this.blogService = blogService;
     }
-    async addblog(blogTitle, blogDesc, blogImage, blogContent, blogInterest) {
-        const blog = await this.blogService.insertBlog(blogTitle, blogDesc, blogImage, blogContent, blogInterest);
+    async addblog(blogTitle, blogDesc, blogImage, blogContent, blogInterest, blogWriter, blogWriterId) {
+        const blog = await this.blogService.insertBlog(blogTitle, blogDesc, blogImage, blogContent, blogInterest, blogWriter, blogWriterId);
         return {
             statusCode: common_1.HttpStatus.OK,
             message: 'blog added successfully',
@@ -31,14 +31,26 @@ let BlogController = class BlogController {
         const blog = await this.blogService.getBlogs();
         return blog;
     }
-    getblog(blogInterest) {
+    async getblog(blogInterest) {
         return this.blogService.getSingleBlog(blogInterest);
     }
-    getBlogsByInterest(blogId) {
+    async getBlogsByInterest(blogId) {
         return this.blogService.getBlogsByInterest(blogId);
     }
-    async updateBlog(blogId, blogTitle, blogDesc, blogImage, blogContent, blogInterest) {
-        const blog = await this.blogService.updateBlog(blogId, blogTitle, blogDesc, blogImage, blogContent, blogInterest);
+    async commentBlog(blogId, commentText, commentName, commentPhotoUrl) {
+        return await this.blogService.commentBlog(blogId, commentText, commentName, commentPhotoUrl);
+    }
+    async deleteComment(blogId, commentText, commentName, commentPhotoUrl) {
+        return await this.blogService.deleteComment(blogId, commentText, commentName, commentPhotoUrl);
+    }
+    async likeBlog(blogId, userId) {
+        return await this.blogService.likeBlog(blogId, userId);
+    }
+    async dislikeBlog(blogId, userId) {
+        return await this.blogService.dislikeBlog(blogId, userId);
+    }
+    async updateBlog(blogId, blogTitle, blogDesc, blogImage, blogContent, blogInterest, blogWriterId) {
+        const blog = await this.blogService.updateBlog(blogId, blogTitle, blogDesc, blogImage, blogContent, blogInterest, blogWriterId);
         return {
             statusCode: common_1.HttpStatus.OK,
             message: 'blog updated successfully',
@@ -62,8 +74,10 @@ __decorate([
     __param(2, common_1.Body('imageLink')),
     __param(3, common_1.Body('content')),
     __param(4, common_1.Body('interest')),
+    __param(5, common_1.Body('writer')),
+    __param(6, common_1.Body('writerId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, String, String, String]),
+    __metadata("design:paramtypes", [String, String, String, String, String, String, String]),
     __metadata("design:returntype", Promise)
 ], BlogController.prototype, "addblog", null);
 __decorate([
@@ -77,15 +91,51 @@ __decorate([
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], BlogController.prototype, "getblog", null);
 __decorate([
     common_1.Get('posts/:interest'),
     __param(0, common_1.Param('interest')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], BlogController.prototype, "getBlogsByInterest", null);
+__decorate([
+    common_1.Patch('comment/:id'),
+    __param(0, common_1.Param('id')),
+    __param(1, common_1.Body('text')),
+    __param(2, common_1.Body('name')),
+    __param(3, common_1.Body('photoUrl')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String, String, String]),
+    __metadata("design:returntype", Promise)
+], BlogController.prototype, "commentBlog", null);
+__decorate([
+    common_1.Patch('comment/delete/:id'),
+    __param(0, common_1.Param('id')),
+    __param(1, common_1.Body('text')),
+    __param(2, common_1.Body('name')),
+    __param(3, common_1.Body('photoUrl')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String, String, String]),
+    __metadata("design:returntype", Promise)
+], BlogController.prototype, "deleteComment", null);
+__decorate([
+    common_1.Patch('like/:id'),
+    __param(0, common_1.Param('id')),
+    __param(1, common_1.Body('userId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", Promise)
+], BlogController.prototype, "likeBlog", null);
+__decorate([
+    common_1.Patch('dislike/:id'),
+    __param(0, common_1.Param('id')),
+    __param(1, common_1.Body('userId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", Promise)
+], BlogController.prototype, "dislikeBlog", null);
 __decorate([
     common_1.Patch(':id'),
     __param(0, common_1.Param('id')),
@@ -94,8 +144,9 @@ __decorate([
     __param(3, common_1.Body('imageLink')),
     __param(4, common_1.Body('content')),
     __param(5, common_1.Body('interest')),
+    __param(6, common_1.Body('writerId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, String, String, String, String]),
+    __metadata("design:paramtypes", [String, String, String, String, String, String, String]),
     __metadata("design:returntype", Promise)
 ], BlogController.prototype, "updateBlog", null);
 __decorate([

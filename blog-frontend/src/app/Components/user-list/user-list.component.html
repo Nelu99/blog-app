@@ -1,0 +1,19 @@
+<div *ngIf="isAdmin()" class="container-fluid" style="padding-top: 50px; padding-bottom: 50px">
+    <h1 class="mt-4">User List</h1>
+    <div class="card my-4" *ngFor="let item of userList">
+        <div *ngIf="item.role !== 'admin'" style="margin: 15px;" class="media mb-4">
+            <div class="w-100">
+                <img src="{{item.photoUrl}}" class="float-left img-fluid user-avatar" alt="User Photo">
+                <h5 class="card-title bg-text-autor">{{item.name}}</h5>
+                <h5 class="card-title">{{item.email}}</h5>
+                <div class="row card-text">
+                    <h5 style="margin-right: 10px" >Interests: </h5>
+                    <div class="text-center" *ngFor="let int of item.interests">
+                        <a style="margin-right: 10px; color:darkcyan;" href="/explore/{{int}}">{{int}}</a>
+                    </div>
+                </div>
+                <img (click)="deleteUser(item)" src="/assets/delete.svg" class="float-right img-fluid zoom" alt="RemoveUser">
+            </div>
+        </div>
+    </div>
+</div>

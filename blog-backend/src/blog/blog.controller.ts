@@ -11,14 +11,18 @@ export class BlogController {
         @Body('description') blogDesc: string,
         @Body('imageLink') blogImage: string,
         @Body('content') blogContent: string,
-        @Body('interest') blogInterest: string
+        @Body('interest') blogInterest: string,
+        @Body('writer') blogWriter: string,
+        @Body('writerId') blogWriterId: string
     ) {
         const blog = await this.blogService.insertBlog(
             blogTitle,
             blogDesc,
             blogImage,
             blogContent,
-            blogInterest
+            blogInterest,
+            blogWriter,
+            blogWriterId
         );
         return {
             statusCode: HttpStatus.OK,
@@ -34,13 +38,65 @@ export class BlogController {
     }
 
     @Get(':id')
-    getblog(@Param('id') blogInterest: string) {
+    async getblog(@Param('id') blogInterest: string) {
         return this.blogService.getSingleBlog(blogInterest);
     }
 
     @Get('posts/:interest')
-    getBlogsByInterest(@Param('interest') blogId: string) {
+    async getBlogsByInterest(@Param('interest') blogId: string) {
         return this.blogService.getBlogsByInterest(blogId);
+    }
+
+    @Patch('comment/:id')
+    async commentBlog(
+        @Param('id') blogId: string,
+        @Body('text') commentText: string,
+        @Body('name') commentName: string,
+        @Body('photoUrl') commentPhotoUrl: string,
+    ) {
+        return await this.blogService.commentBlog(
+            blogId,
+            commentText,
+            commentName,
+            commentPhotoUrl
+        );
+    }
+
+    @Patch('comment/delete/:id')
+    async deleteComment(
+        @Param('id') blogId: string,
+        @Body('text') commentText: string,
+        @Body('name') commentName: string,
+        @Body('photoUrl') commentPhotoUrl: string,
+    ) {
+        return await this.blogService.deleteComment(
+            blogId,
+            commentText,
+            commentName,
+            commentPhotoUrl
+        );
+    }
+
+    @Patch('like/:id')
+    async likeBlog(
+        @Param('id') blogId: string,
+        @Body('userId') userId: string
+    ) {
+        return await this.blogService.likeBlog(
+            blogId,
+            userId
+        );
+    }
+    
+    @Patch('dislike/:id')
+    async dislikeBlog(
+        @Param('id') blogId: string,
+        @Body('userId') userId: string
+    ) {
+        return await this.blogService.dislikeBlog(
+            blogId,
+            userId
+        );
     }
 
     @Patch(':id')
@@ -50,7 +106,8 @@ export class BlogController {
         @Body('description') blogDesc: string,
         @Body('imageLink') blogImage: string,
         @Body('content') blogContent: string,
-        @Body('interest') blogInterest: string
+        @Body('interest') blogInterest: string,
+        @Body('writerId') blogWriterId: string
     ) {
         const blog = await this.blogService.updateBlog(
             blogId,
@@ -58,7 +115,8 @@ export class BlogController {
             blogDesc,
             blogImage,
             blogContent,
-            blogInterest
+            blogInterest,
+            blogWriterId
         );
         return {
             statusCode: HttpStatus.OK,

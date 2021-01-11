@@ -1,7 +1,25 @@
 <div style="margin-top: 15px;" class="card my-4">
-    <h5 class="card-header">Side Widget</h5>
-    <div class="card-body">
-        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap
-        4 card containers!
+    <div class="container">
+        <div *ngIf="getUser()" class="d-flex justify-content-center h-100 text-center">
+            <div class="image_outer_container" style="margin-top: 15px">
+                <div class="image_inner_container">
+                    <img style="background:white;" [src]="getUser().photoUrl">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{getUser().name}}</h4>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!getUser()" class="d-flex justify-content-center h-100 text-center">
+            <div class="card-body">
+                <h4 class="card-title">Continue using your socials!</h4>
+                <p class="card-text">An account opens up features like writing your own blogs and commenting.</p>
+                <img (click)="googleLogin()" class="zoom" height="100px" style="margin-top:15px;" alt="Google sign-in"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                <br>
+                <img (click)="facebookLogin()" class="zoom" height="100px" style="margin-top:25px;" alt="Facebook sign-in"
+                    src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512" />
+            </div>
+        </div>
     </div>
 </div>

@@ -1,27 +1,60 @@
-<div class="signup-form" style="padding-top: 50px;">
-    <form class="btn-lg" action="" method="post">
-		<h2>Register</h2>
-		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
-        <div class="form-group">
-			<input type="text" class="form-control" name="first_name" placeholder="First Name" required="required">	
+<div class="container" style="padding-top: 50px;">
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+
+            <h1 class="mt-4">Register</h1>
+
+            <form id="postForm" style="margin-top: 15px" (ngSubmit)="onSubmit()">
+
+                <div class="form-group">
+                    <label for="name1">First Name <span class="require">*</span></label>
+                    <input #name1 id="name1" type="text" class="form-control" formcontrolName="name1" name="name1" required
+                        minlength="2" />
+                </div>
+
+                <div class="form-group">
+                    <label for="name2">Last Name <span class="require">*</span> </label>
+                    <input #name1 id="name2" type="text" class="form-control" formcontrolName="name2" name="name2" required
+                        minlength="2" />
+                </div>
+
+                <div class="form-group">
+                    <label for="regemail">Email <span class="require">*</span></label>
+                    <input #regemail id="regemail" type="text" class="form-control" name="regemail" formcontrolName="regemail"
+                        required minlength="4" ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+                    <p #emailMsg id="emailMsg" style="color: red;"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="regpassword">Password <span class="require">*</span> </label>
+                    <input #regpassword id="regpassword" type="password" class="form-control" formcontrolName="regpassword" name="regpassword" required
+                        minlength="6" />
+                </div>
+
+                <div class="form-group">
+                    <label for="regphotoUrl">Picture </label>
+                    <input #regphotoUrl id="regphotoUrl" type="text" class="form-control" name="regphotoUrl"
+                        formcontrolName="regphotoUrl">
+                </div>
+
+                <div class="form-group">
+                    <p><span class="require">*</span> - required fields</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a
+                            href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-lg btn-success my-2 my-sm-0">
+                        Register Now
+                    </button>
+                </div>
+
+            </form>
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"> 	
-        </div>
-        <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
-        </div>
-		<div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-        </div>
-		<div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
-        </div>        
-        <div class="form-group">
-			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-		</div>
-		<div class="form-group">
-            <button type="submit" class="btn btn-outline-success my-2 my-sm-0 btn-lg btn-block">Register Now</button>
-        </div>
-    </form>
+
+    </div>
 </div>

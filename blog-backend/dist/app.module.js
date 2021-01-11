@@ -12,13 +12,19 @@ const mongoose_module_1 = require("@nestjs/mongoose/dist/mongoose.module");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const blog_module_1 = require("./blog/blog.module");
+const config_1 = require("@nestjs/config");
+const user_module_1 = require("./user/user.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
             blog_module_1.BlogModule,
-            mongoose_module_1.MongooseModule.forRoot('mongodb://127.0.0.1:27017/blog')
+            mongoose_module_1.MongooseModule.forRoot('mongodb://127.0.0.1:27017/blog'),
+            config_1.ConfigModule.forRoot({
+                envFilePath: '.development.env',
+            }),
+            user_module_1.UserModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

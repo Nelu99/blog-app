@@ -3,7 +3,7 @@ import { Blog } from './blog.model';
 export declare class BlogService {
     private readonly blogModel;
     constructor(blogModel: Model<Blog>);
-    insertBlog(title: string, desc: string, img: string, content: string, interest: string): Promise<Blog>;
+    insertBlog(title: string, desc: string, img: string, content: string, interest: string, writer: string, writerId: string): Promise<Blog>;
     getBlogs(): Promise<{
         id: string;
         title: string;
@@ -11,6 +11,10 @@ export declare class BlogService {
         imageLink: string;
         content: string;
         interest: string;
+        writer: string;
+        writerId: string;
+        comments: string[][];
+        likes: string[];
         date: string;
     }[]>;
     getSingleBlog(blogId: string): Promise<{
@@ -20,6 +24,10 @@ export declare class BlogService {
         imageLink: string;
         content: string;
         interest: string;
+        writer: string;
+        writerId: string;
+        comments: string[][];
+        likes: string[];
         date: string;
     }>;
     getBlogsByInterest(blogInterest: string): Promise<{
@@ -29,9 +37,65 @@ export declare class BlogService {
         imageLink: string;
         content: string;
         interest: string;
+        writer: string;
+        writerId: string;
+        comments: string[][];
+        likes: string[];
         date: string;
     }[]>;
-    updateBlog(blogId: string, title: string, desc: string, img: string, content: string, interest: string): Promise<Blog>;
+    updateBlog(blogId: string, title: string, desc: string, img: string, content: string, interest: string, writerId: string): Promise<Blog>;
+    likeBlog(blogId: string, userId: string): Promise<{
+        id: string;
+        title: string;
+        description: string;
+        imageLink: string;
+        content: string;
+        interest: string;
+        writer: string;
+        writerId: string;
+        likes: string[];
+        comments: string[][];
+        date: string;
+    }>;
+    dislikeBlog(blogId: string, userId: string): Promise<{
+        id: string;
+        title: string;
+        description: string;
+        imageLink: string;
+        content: string;
+        interest: string;
+        writer: string;
+        writerId: string;
+        comments: string[][];
+        likes: string[];
+        date: string;
+    }>;
+    commentBlog(blogId: string, commentText: string, commentName: string, commentPhotoUrl: string): Promise<{
+        id: string;
+        title: string;
+        description: string;
+        imageLink: string;
+        content: string;
+        interest: string;
+        writer: string;
+        writerId: string;
+        comments: string[][];
+        likes: string[];
+        date: string;
+    }>;
+    deleteComment(blogId: string, commentText: string, commentName: string, commentPhotoUrl: string): Promise<{
+        id: string;
+        title: string;
+        description: string;
+        imageLink: string;
+        content: string;
+        interest: string;
+        writer: string;
+        writerId: string;
+        comments: string[][];
+        likes: string[];
+        date: string;
+    }>;
     deleteBlog(blogId: string): Promise<boolean>;
     private findBlog;
 }
