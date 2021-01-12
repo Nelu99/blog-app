@@ -79,9 +79,6 @@ export class BlogService {
 
     async updateBlog(blogId: string, title: string, desc: string, img: string, content: string, interest: string, writerId: string) {
         const updatedblog = await this.findBlog(blogId);
-        if (updatedblog.writerId !== writerId) {
-            throw new HttpException('User Id does not match that of the writer.', HttpStatus.FORBIDDEN);
-        }
 
         if (title) {
             updatedblog.title = title;
@@ -148,9 +145,9 @@ export class BlogService {
         };
     }
 
-    async commentBlog(blogId: string, commentText: string, commentName: string, commentPhotoUrl: string) {
+    async commentBlog(blogId: string, commentText: string, commentName: string, commentPhotoUrl: string, userId: string) {
         const updatedblog = await this.findBlog(blogId);
-        const newComment = [commentName, commentText, commentPhotoUrl];
+        const newComment = [commentName, commentText, commentPhotoUrl, userId];
         updatedblog.comments.forEach((item, index) => {
             if (item[0] === commentName && item[1] === commentText && item[2] === commentPhotoUrl) {
                 throw new HttpException('You cannot post the same comment twice.', HttpStatus.FORBIDDEN);
@@ -174,7 +171,7 @@ export class BlogService {
         };
     }
 
-    async deleteComment(blogId: string, commentText: string, commentName: string, commentPhotoUrl: string) {
+    async deleteComment(blogId: string, commentText: string, commentName: string, commentPhotoUrl: string, userId: string) {
         const updatedblog = await this.findBlog(blogId);
 
         updatedblog.comments.forEach((item, index) => {

@@ -53,12 +53,14 @@ export class BlogController {
         @Body('text') commentText: string,
         @Body('name') commentName: string,
         @Body('photoUrl') commentPhotoUrl: string,
+        @Body('userId') userId: string,
     ) {
         return await this.blogService.commentBlog(
             blogId,
             commentText,
             commentName,
-            commentPhotoUrl
+            commentPhotoUrl,
+            userId
         );
     }
 
@@ -68,12 +70,14 @@ export class BlogController {
         @Body('text') commentText: string,
         @Body('name') commentName: string,
         @Body('photoUrl') commentPhotoUrl: string,
+        @Body('userId') userId: string,
     ) {
         return await this.blogService.deleteComment(
             blogId,
             commentText,
             commentName,
-            commentPhotoUrl
+            commentPhotoUrl,
+            userId
         );
     }
 

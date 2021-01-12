@@ -15,7 +15,7 @@ import { ApiConfig } from '../services/ApiConfig';
 export class BlogPostComponent implements OnInit {
   private readonly URL = ApiConfig.url;
   private routeSub: Subscription | undefined;
-  public postComments: Map<string, string> | undefined;
+  public postComments: string[][] | undefined;
   public post: PostListItem | undefined;
   private listening: boolean = false;
 
@@ -50,6 +50,16 @@ export class BlogPostComponent implements OnInit {
 
   isOwnBlog() {
     if(this.cookieService.get('userRole') == "admin"){
+      return true;
+    }
+    return this.cookieService.get('userId') == this.cookieService.get('writerId');
+  }
+
+  isOwnComment(item: string[]) {
+    if(this.cookieService.get('userRole') == "admin"){
+      return true;
+    }
+    if(item[3] == this.cookieService.get('userId')){
       return true;
     }
     return this.cookieService.get('userId') == this.cookieService.get('writerId');
@@ -166,7 +176,8 @@ export class BlogPostComponent implements OnInit {
     const comment = {
       text: (<HTMLInputElement>document.getElementById("comment")).value,
       name: this.getUser().name,
-      photoUrl: this.getUser().photoUrl
+      photoUrl: this.getUser().photoUrl,
+      userId: this.cookieService.get('userId')
     }
 
     this.httpClient.patch<PostListItem>(this.URL + '/blog/comment/' + this.post?.id, comment).subscribe(

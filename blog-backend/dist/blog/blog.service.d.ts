@@ -70,7 +70,7 @@ export declare class BlogService {
         likes: string[];
         date: string;
     }>;
-    commentBlog(blogId: string, commentText: string, commentName: string, commentPhotoUrl: string): Promise<{
+    commentBlog(blogId: string, commentText: string, commentName: string, commentPhotoUrl: string, userId: string): Promise<{
         id: string;
         title: string;
         description: string;
@@ -83,7 +83,7 @@ export declare class BlogService {
         likes: string[];
         date: string;
     }>;
-    deleteComment(blogId: string, commentText: string, commentName: string, commentPhotoUrl: string): Promise<{
+    deleteComment(blogId: string, commentText: string, commentName: string, commentPhotoUrl: string, userId: string): Promise<{
         id: string;
         title: string;
         description: string;

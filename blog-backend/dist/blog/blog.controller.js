@@ -37,11 +37,11 @@ let BlogController = class BlogController {
     async getBlogsByInterest(blogId) {
         return this.blogService.getBlogsByInterest(blogId);
     }
-    async commentBlog(blogId, commentText, commentName, commentPhotoUrl) {
-        return await this.blogService.commentBlog(blogId, commentText, commentName, commentPhotoUrl);
+    async commentBlog(blogId, commentText, commentName, commentPhotoUrl, userId) {
+        return await this.blogService.commentBlog(blogId, commentText, commentName, commentPhotoUrl, userId);
     }
-    async deleteComment(blogId, commentText, commentName, commentPhotoUrl) {
-        return await this.blogService.deleteComment(blogId, commentText, commentName, commentPhotoUrl);
+    async deleteComment(blogId, commentText, commentName, commentPhotoUrl, userId) {
+        return await this.blogService.deleteComment(blogId, commentText, commentName, commentPhotoUrl, userId);
     }
     async likeBlog(blogId, userId) {
         return await this.blogService.likeBlog(blogId, userId);
@@ -106,8 +106,9 @@ __decorate([
     __param(1, common_1.Body('text')),
     __param(2, common_1.Body('name')),
     __param(3, common_1.Body('photoUrl')),
+    __param(4, common_1.Body('userId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, String, String]),
+    __metadata("design:paramtypes", [String, String, String, String, String]),
     __metadata("design:returntype", Promise)
 ], BlogController.prototype, "commentBlog", null);
 __decorate([
@@ -116,8 +117,9 @@ __decorate([
     __param(1, common_1.Body('text')),
     __param(2, common_1.Body('name')),
     __param(3, common_1.Body('photoUrl')),
+    __param(4, common_1.Body('userId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, String, String]),
+    __metadata("design:paramtypes", [String, String, String, String, String]),
     __metadata("design:returntype", Promise)
 ], BlogController.prototype, "deleteComment", null);
 __decorate([

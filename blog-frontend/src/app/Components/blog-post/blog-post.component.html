@@ -166,7 +166,7 @@
           <p style="padding-left: 10px" class="mt-0">{{getText(item)}}</p>
           <hr>
         </div>
-        <img *ngIf="isOwnBlog()" (click)="removeComment(item)" src="/assets/delete.svg" class="float-right img-fluid zoom" alt="RemoveComment">
+        <img *ngIf="isOwnComment(item)" (click)="removeComment(item)" src="/assets/delete.svg" class="float-right img-fluid zoom" alt="RemoveComment">
       </div>
     </div>
   </div>

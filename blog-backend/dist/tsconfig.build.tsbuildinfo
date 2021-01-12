@@ -1537,13 +1537,13 @@
         "affectsGlobalScope": false
       },
       "../src/blog/blog.service.ts": {
-        "version": "38aa7959f0ff1dde2cd64c05992e8e63ddc1f13c0c168355f87f959c64c2f5da",
-        "signature": "0f08d6837d9442b0fd1aae41ef6773e4e9a836239b3155843ed8bb84ad6598bb",
+        "version": "0efe3fd62b776da313128fb8ff597cc65d5644f5406db45b49e51e3125235455",
+        "signature": "f4e675374e29390515d82c10d2a3e69a328151734ab2bed2b0d7a473d0f13172",
         "affectsGlobalScope": false
       },
       "../src/blog/blog.controller.ts": {
-        "version": "b9c376ba2017c935001fc7e7e0eb787fb32bf1cbd9a7f54c551357fc8a08b212",
-        "signature": "faba9de2fdf9a4a6a577268024accc19a641e1b77db65f72de5060a8c1f87358",
+        "version": "14b9aee0db335bb2fdfe3cba4bc641b9681c9dc66a8b54460aeb023d813fc695",
+        "signature": "b55f97fe4b5a20c6aeb9f5574e5ecde42a013e44fc112d91a962a158b090480b",
         "affectsGlobalScope": false
       },
       "../src/blog/blog.module.ts": {
