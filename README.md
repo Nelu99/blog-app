@@ -14,13 +14,14 @@ Commenting / Deleting personal comments on other posts;
 Sharing posts on social media;
 Editing or deleting existing posts;
 Liking posts and following interests to build your profile;
+Searching for interests;
 
 Diagrams:
 
 ![alt text](https://i.imgur.com/JXyMP3h.png)
 ![alt text](https://i.imgur.com/7xXDWMo.png)
 
-Use Examples:
+UI Examples:
 
 ![image](https://user-images.githubusercontent.com/59774367/120813846-f8fb2500-c556-11eb-9f92-c8921b56f20b.png)
 ![image](https://user-images.githubusercontent.com/59774367/120814269-6444f700-c557-11eb-873d-b44cf5bb8819.png)
