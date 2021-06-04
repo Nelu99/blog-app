@@ -18,7 +18,7 @@ Searching for interests;
 
 Diagrams:
 
-![image](https://user-images.githubusercontent.com/59774367/120816931-e6ceb600-c559-11eb-96c5-64dd5e5a41ad.png)
+![image](https://user-images.githubusercontent.com/59774367/120817109-154c9100-c55a-11eb-828e-beda25325c0e.png)
 ![alt text](https://i.imgur.com/7xXDWMo.png)
 
 UI Examples:
